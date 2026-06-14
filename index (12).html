@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk sayangg 🤍</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#050816,#111827,#1e1b4b);
+    color:white;
+    height:100vh;
+    overflow:hidden;
+}
+
+
+/* ===== BINTANG ===== */
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:blink 3s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.2;
+    }
+}
+
+
+/* ===== HALAMAN AWAL ===== */
+
+#opening{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+    z-index:10;
+}
+
+#opening h1{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+#opening p{
+    max-width:550px;
+    line-height:1.8;
+    opacity:.85;
+}
+
+
+/* ===== BULAN BERSINAR ===== */
+
+.moon{
+    font-size:70px;
+    animation:glow 3s infinite;
+}
+
+@keyframes glow{
+    50%{
+        text-shadow:
+        0 0 25px white,
+        0 0 50px white;
+    }
+}
+
+
+/* ===== TOMBOL ===== */
+
+button{
+    margin-top:30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:white;
+    color:#111;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px white;
+}
+
+
+/* Tombol surat disembunyikan dulu */
+
+#suratBtn{
+    display:none;
+}
+
+
+/* ===== SURAT ===== */
+
+#letter{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    position:relative;
+    z-index:20;
+}
+
+
+.card{
+    width:90%;
+    max-width:760px;
+    max-height:90vh;
+    overflow-y:auto;
+    padding:35px;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,.25);
+}
+
+
+/* ===== FOTO ===== */
+
+.photo{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    margin:20px auto;
+    border:4px solid white;
+    box-shadow:0 0 25px white;
+}
+
+
+/* ===== TEKS ===== */
+
+h2{
+    text-align:center;
+}
+
+#text{
+    margin-top:20px;
+    line-height:1.8;
+    white-space:pre-line;
+}
+
+
+/* ===== AUDIO ===== */
+
+audio{
+    display:none;
+}
+
+
+/* ===== TANDA TANGAN ===== */
+
+.signature{
+    text-align:right;
+    margin-top:25px;
+    font-style:italic;
+}
+
+
+/* ===== SAKURA ===== */
+
+.flower{
+    position:absolute;
+    top:-30px;
+    font-size:22px;
+    animation:fall 8s linear;
+}
+
+@keyframes fall{
+    to{
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+    }
+}
+
+/* ===============================
+   ENDING CINEMATIC LIRIK
+================================ */
+
+#endingScene{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#050816;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    z-index:999;
+    opacity:0;
+    visibility:hidden;
+    transition:2s;
+}
+
+
+#endingScene.show{
+    opacity:1;
+    visibility:visible;
+    transform: scaleX(1) scaleY(1);
+}
+
+
+#lyrics{
+    color:white;
+    font-size:28px;
+    line-height:1.8;
+    max-width:800px;
+
+    opacity:0;
+    transform:translateY(30px);
+
+    transition:1.5s;
+}
+
+
+#lyrics.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== CAMERA ZOOM EFFECT ===== */
+
+
+
+#endingScene::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.03);
+    transform: rotateY(90deg);
+    opacity:0;
+    transition:1s;
+}
+
+#endingScene.show::before{
+    transform: rotateY(0deg);
+    opacity:1;
+}
+
+#lyrics{
+    color:white;
+    font-size:28px;
+    line-height:1.8;
+    max-width:800px;
+
+    opacity:1;
+    transform:none;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<!-- HALAMAN AWAL -->
+
+<div id="opening">
+
+
+<h1 class="moon">
+🌙
+</h1>
+
+
+<h1>
+Untuk sayangg kikyyy 🤍
+</h1>
+
+
+<p>
+Malam ini adalah waktunya sayangg beristirahat.
+Duduk sebentar, tenangkan pikiran, dan biarkan kikyy menemani malam sayangg 🤏🏻🤍
+</p>
+
+
+<button id="startBtn"
+onclick="startNight()">
+
+Mulai Malam Ini 🌙
+
+</button>
+
+
+<button id="suratBtn"
+onclick="openLetter()">
+
+Buka Surat ✨
+
+</button>
+
+
+</div>
+
+
+
+<!-- HALAMAN SURAT -->
+
+<div id="letter">
+
+<div class="card">
+
+
+<h2>
+🌷 untuk Bayii mungill kikyyy yg selalu kuatt
+</h2>
+
+
+<img src="cantiii.png" class="photo">
+
+
+<div id="text"></div>
+
+
+<p class="signature">
+Dari seseorang yang selalu ingin melihat senyummu 🤍
+</p>
+
+
+</div>
+
+</div>
+
+
+<!-- AUDIO 3 LAGU -->
+
+<audio id="music"></audio>
+
+<!-- ENDING CINEMATIC -->
+
+<div id="endingScene">
+
+    <div id="lyrics">
+        ...
+    </div>
+
+</div>
+
+<script>
+
+/* ===============================
+   BINTANG DI LANGIT
+================================ */
+
+for(let i = 0; i < 120; i++){
+
+    let star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+    Math.random() * 100 + "%";
+
+    star.style.top =
+    Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+    Math.random() * 3 + "s";
+
+    document.body.appendChild(star);
+
+}
+
+
+/* ===============================
+   SAKURA JATUH
+================================ */
+
+setInterval(() => {
+
+    let flower =
+    document.createElement("div");
+
+    flower.className = "flower";
+
+    flower.innerHTML = "🌸";
+
+    flower.style.left =
+    Math.random() * 100 + "%";
+
+
+    document.body.appendChild(flower);
+
+
+    setTimeout(() => {
+
+        flower.remove();
+
+    }, 8000);
+
+
+}, 700);
+
+
+
+/* ===============================
+   SISTEM MUSIK 3 LAGU
+================================ */
+
+const music =
+document.getElementById("music");
+
+
+const songs = [
+
+    "pembuka.mp3",
+    "baca.mp3",
+    "penutup.mp3"
+
+];
+
+
+
+/* ===============================
+   FADE PERGANTIAN LAGU
+================================ */
+
+function gantiLaguSmooth(index, loop = false){
+
+    let fadeOut = setInterval(() => {
+
+
+        if(music.volume > 0.05){
+
+
+            music.volume -= 0.05;
+
+
+        }else{
+
+
+            clearInterval(fadeOut);
+
+
+            music.pause();
+
+
+            music.src = songs[index];
+
+
+            music.currentTime = 0;
+
+
+            music.loop = loop;
+
+
+            music.volume = 0;
+
+
+            music.play();
+
+
+            let fadeIn = setInterval(() => {
+
+
+                if(music.volume < 0.6){
+
+
+                    music.volume += 0.05;
+
+
+                }else{
+
+
+                    clearInterval(fadeIn);
+
+
+                    music.volume = 0.6;
+
+
+                }
+
+
+            },150);
+
+
+        }
+
+
+    },150);
+
+}
+
+
+
+/* ===============================
+   TOMBOL MULAI MALAM
+================================ */
+
+
+function startNight(){
+
+
+    music.src = songs[0];
+
+
+    music.volume = 0.6;
+
+
+    music.loop = true;
+
+
+    music.play();
+
+
+
+    document
+    .getElementById("startBtn")
+    .style.display = "none";
+
+
+
+    document
+    .getElementById("suratBtn")
+    .style.display = "block";
+
+
+}
+
+
+
+
+/* ===============================
+   BUKA SURAT
+================================ */
+
+
+function openLetter(){
+
+
+    // lagu 1 mengecil lalu pindah lagu 2
+    gantiLaguSmooth(1, true);
+
+
+
+    // pindah halaman
+
+    document
+    .getElementById("opening")
+    .style.display = "none";
+
+
+
+    document
+    .getElementById("letter")
+    .style.display = "flex";
+
+
+
+    // mulai mengetik
+
+    startTyping();
+
+
+}
+
+
+
+
+/* ===============================
+   EFEK MENGETIK
+================================ */
+
+
+let posisi = 0;
+
+
+function startTyping(){
+
+    posisi = 0;
+
+    document.getElementById("text").innerHTML = "";
+
+    ketik();
+
+}
+
+
+
+function ketik(){
+
+    if(posisi < message.length){
+
+        document.getElementById("text").innerHTML += message.charAt(posisi);
+        posisi++;
+
+        setTimeout(ketik, 45);
+
+    } else {
+
+        gantiLaguSmooth(2, false);
+
+        setTimeout(() => {
+            tampilEnding();
+        }, 800);
+    }
+}
+
+/* ===============================
+   ISI SURAT
+================================ */
+
+const message = `
+
+Hai Bayii mungill kikyyy 🤏🏻🤍
+
+Kalau sayangg sedang membaca surat ini,
+mungkin hari ini adalah hari yang sangat panjang untuk sayangg, semangatttt yaaa cantii 🤏🏻🤍.
+
+Dari pagi sayanggg bangun,
+berangkat bekerja,
+menyelesaikan banyak tanggung jawab,
+dan tetap mencoba tersenyum walaupun rasa lelah datang menghampiri.
+
+kikyy tauu...
+menjadi seseorang yang sering diandalkan bukanlah hal yang mudah.
+
+Terlebih lagi sebagai anak pertama,
+terkadang sayangg harus terlihat kuat,
+harus mengalah,
+harus memikirkan banyak orang sebelum memikirkan diri sayangg sendiri.
+
+Tapi malam ini,
+kikyy mauuu sayanggg berhenti sejenak.
+
+Tarik napas perlahan.
+Tenanginn hatii Sayangg 🤏🏻🤍.
+
+Tidaaa apa apa kalauuu Sayangg ngerasaa capee.
+Tidaaa apa apa kalauu sayangg membutuhkan waktu untuk beristirahat.
+
+sayanggg tidaaa harus selalu memikul semuanya sendirian.
+
+maaciii karena sudah bertahan sampai hari ini.
+
+maacii untuk setiap usaha yang tidaaa semua orang lihat.
+
+maacii karena tetap menjadi perempuan yang penuh kasih,
+yang selalu berusaha memberikan yang terbaik.
+
+kikyy mungkin tidak bisa menghapus semua rasa lelah Sayangg 🥺🤏🏻.
+
+Tapi kikyy ingin sayangg tahu...
+
+Ada seseorang yang bangga dengan setiap langkah kecil yang sayangg lakukan.
+
+Jangan terlalu keras samaa dirii sayangggg sendiri🫂🤍.
+
+Malam ini biarkan pikiran sayangg berisitirahat yaa🤏🏻.
+
+Biarkan musik ini menemani,
+biarkan bintang menjadi saksi kalauu sayanggg telah berjuang sejauh ini.
+
+Besoo akan datang hari yang baru.
+
+Dan kikyyy berharap sayangg bangun dengan hati yang lebih tenang,
+dengan senyuman yang lebih hangat.
+
+Selamat beristirahat.
+
+maacii karena telah menjadi diri sayangg sendiri.
+
+🤍
+
+`;
+
+
+/* ===============================
+   ENDING SETELAH SURAT
+================================ */
+
+/* ===============================
+   ENDING CINEMATIC LIRIK
+================================ */
+
+/* ===============================
+   ENDING SUBTITLE CINEMATIC
+   SESUAI WAKTU LAGU + EFEK KETIK
+================================ */
+
+
+/* ===============================
+   ENDING SUBTITLE + ZOOM CINEMATIC
+================================ */
+
+function tampilEnding() {
+    const scene = document.getElementById("endingScene");
+    const teks = document.getElementById("lyrics");
+
+    scene.classList.add("show");
+
+    teks.innerHTML = "";
+
+    const suratEnding = `
+Untuk sayanggg 🤍
+
+Kalau sampai di sini...
+berarti sayanggg sudaaa membaca semuanya sampai akhir.
+
+kikyyy tidaa tauu hari sayanggg seberat apa,
+tapi sayangg sudah sampai sejauh ini, itu bukan hal kecil.
+
+Istirahat sebentar ya.
+Dunia nggak akan marah kalau sayangg berhenti sebentar.
+
+sayangg boleee capeee.
+sayangg boleee diam.
+sayanggg tetap berharga walau lagi capee.
+
+kikyyy bangga sama sayanggg 🤍
+    `;
+
+    let i = 0;
+
+    function ketikSurat() {
+        if (i < suratEnding.length) {
+            teks.innerHTML += suratEnding.charAt(i);
+            i++;
+            setTimeout(ketikSurat, 40);
+        }
+    }
+
+    ketikSurat();
+}
+
+
+/* ===============================
+   PENUTUP FILE
+================================ */
+
+</script>
+
+</body>
+
+</html>
